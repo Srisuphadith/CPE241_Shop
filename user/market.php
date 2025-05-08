@@ -222,7 +222,7 @@
 </script>
 
 <div class="poppins-font grid gap-4 my-4 px-4
-            grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 main-product-grid">
     <?php
     $sql = "SELECT p.product_ID, p.productName, p.imgPath, p.price, c.cateName, 
             ROUND(IFNULL(AVG(r.starRate), 0), 1) AS STAR 

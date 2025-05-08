@@ -126,6 +126,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <?php require_once("../navbar/nav_user.php"); ?>
 
+<!-- Back to Market Button -->
+<div class="max-w-6xl mx-auto mt-4">
+    <a href="market.php" class="inline-block bg-gray-400 text-white rounded px-4 py-2 mb-4 poppins-font hover:bg-gray-500 transition">&larr; Back to Market</a>
+</div>
+
 <!-- Display messages - Fixed position at top -->
 <div id="notification-container" class="fixed top-0 left-0 right-0 z-50">
     <?php if (isset($_SESSION["error_message"])): ?>

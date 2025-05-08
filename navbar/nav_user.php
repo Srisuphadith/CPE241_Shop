@@ -30,22 +30,24 @@ session_start();
         <?php } ?>
         <script>
     $(document).ready(function() {
-        $('#search-input').on('keypress', function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                var query = $(this).val();
-
+        $('#search-input').on('input', function() {
+            var query = $(this).val();
+            if (query.length > 0) {
                 $.ajax({
                     url: 'search.php',
                     method: 'GET',
                     data: { query: query },
                     success: function(response) {
-                        $('#search-results').html(response);
+                        $('#search-results').html(response).show();
+                        $('.main-product-grid').hide();
                     },
                     error: function() {
-                        $('#search-results').html('<p>An error occurred. Please try again.</p>');
+                        $('#search-results').html('<p>An error occurred. Please try again.</p>').show();
                     }
                 });
+            } else {
+                $('#search-results').hide();
+                $('.main-product-grid').show();
             }
         });
     });
@@ -114,21 +116,24 @@ session_start();
         <?php } ?>
         <script>
     $(document).ready(function() {
-        $('#search-input').on('keypress', function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                var query = $(this).val();
+        $('#search-input').on('input', function() {
+            var query = $(this).val();
+            if (query.length > 0) {
                 $.ajax({
                     url: 'search.php',
                     method: 'GET',
                     data: { query: query },
                     success: function(response) {
-                        $('#search-results').html(response);
+                        $('#search-results').html(response).show();
+                        $('.main-product-grid').hide();
                     },
                     error: function() {
-                        $('#search-results').html('<p>An error occurred. Please try again.</p>');
+                        $('#search-results').html('<p>An error occurred. Please try again.</p>').show();
                     }
                 });
+            } else {
+                $('#search-results').hide();
+                $('.main-product-grid').show();
             }
         });
     });
@@ -157,7 +162,7 @@ session_start();
         <a href="market.php?category=others" class="text-black font-medium hover:text-gray-300 transition">อื่น ๆ</a>
         </div>
         <div class="flex justify-end space-x-20">
-        <a href="#" class="text-black font-medium hover:text-gray-300 transition bg-white px-4 py-2 rounded-lg">Order</a>
+        <a href="order_history.php" class="text-black font-medium hover:text-gray-300 transition bg-white px-4 py-2 rounded-lg">Order</a>
         </div>
         <!-- <a href="#" class="text-white font-medium hover:text-gray-300 transition"></a>
         <a href="#" class="text-white font-medium hover:text-gray-300 transition">Reports</a> -->
