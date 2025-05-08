@@ -28,11 +28,13 @@ CREATE TABLE `tbl_user_phones` (
 CREATE TABLE `tbl_address` (
     `user_ID` int(11) NOT NULL,
     `buildingNumber` varchar(20) NOT NULL,
-    `sub_province` varchar(100) DEFAULT NULL,
+    `district` varchar(100) DEFAULT NULL,
     `province` varchar(100) DEFAULT NULL,
-    `city` varchar(100) DEFAULT NULL,
+    `subdistrict` varchar(100) DEFAULT NULL,
     `country` varchar(100) DEFAULT NULL,
     `zip_code` varchar(10) DEFAULT NULL,
+    `is_primary` tinyint(1) DEFAULT NULL,
+    `type` varchar(10) DEFAULT 'house',
     `txt` text DEFAULT NULL,
     PRIMARY KEY (`user_ID`, `buildingNumber`),
     FOREIGN KEY (`user_ID`) REFERENCES `tbl_users` (`user_ID`)
@@ -62,6 +64,7 @@ CREATE TABLE `tbl_products` (
     `description` text DEFAULT NULL,
     `price` decimal(10,2) DEFAULT NULL,
     `quantity` int(11) DEFAULT NULL,
+    `is_delete` int(2) DEFAULT 0,
     PRIMARY KEY (`product_ID`),
     KEY `shop_ID` (`shop_ID`),
     KEY `cate_ID` (`cate_ID`),
@@ -97,6 +100,7 @@ CREATE TABLE `tbl_coupons` (
     `minOrderValue` decimal(10,2) DEFAULT NULL,
     `expDate` date DEFAULT NULL,
     `remain` int(11) DEFAULT NULL,
+    `is_delete` int(2) DEFAULT 0,
     PRIMARY KEY (`coupon_ID`)
 );
 

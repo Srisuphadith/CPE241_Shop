@@ -1,7 +1,7 @@
-<?php require_once("../conn.php"); ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-<?php session_start();
+<?php 
+require_once("../conn.php");
+require_once("setup.php");
+session_start();
     if(!(isset($_SESSION["userID"]))){
         header("Location: ../auth/sign_in.php");
         exit();
@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6">
       <!-- Logo -->
         <a href="../user/market.php" class="flex items-center space-x-2">
-          <img src="../img/logo2.png" alt="Logo" class="w-10 h-10" />
+          <img src="https://media.discordapp.net/attachments/1369959680247463977/1369961059695460412/image.png?ex=681dc329&is=681c71a9&hm=59345d2633f4c3372fcb6ba6ae095a60e712d6ac3315ac963443c0cdd3a4da07&=&format=webp&quality=lossless" alt="Logo" class="w-10 h-10" />
           <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
         </a>
 
@@ -63,21 +63,23 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between space-x-20 mx-8 items-center">
         <div class="flex justify-around space-x-20">
-        <a href="#" class="text-black font-medium hover:text-gray-300 transition">
+        <a href="../seller/" class="text-black font-medium hover:text-gray-300 transition">
           <?php
-            $stmt = $conn->prepare("SELECT shopName FROM tbl_shops WHERE user_ID = ?");
+            $stmt = $conn->prepare("SELECT shop_ID,shopName FROM tbl_shops WHERE user_ID = ?");
             $stmt->bind_param("s",$_SESSION['userID']);
             $stmt->execute();
             $result = $stmt->get_result();
             $user = $result->fetch_assoc();
             echo $user['shopName']." Shop";
+            $shopID = $user['shop_ID'];
             $result -> free_result();
           ?>
         </a>
-        <a href="#" class="text-black font-medium hover:text-gray-300 transition">Order List</a>
+        <a href="../seller/order_list.php" class="text-black font-medium hover:text-gray-300 transition">Order List</a>
         <a href="#" class="text-black font-medium hover:text-gray-300 transition">Product Management</a>
         <a href="#" class="text-black font-medium hover:text-gray-300 transition">Discount Management</a>
         <a href="#" class="text-black font-medium hover:text-gray-300 transition">Report</a>
+        <a href="../seller/add_product.php" class="text-black font-medium hover:text-gray-300 transition">Add Product</a>
         </div>
         <!-- <a href="#" class="text-white font-medium hover:text-gray-300 transition"></a>
         <a href="#" class="text-white font-medium hover:text-gray-300 transition">Reports</a> -->
@@ -96,7 +98,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6">
       <!-- Logo -->
         <a href="../user/market.php" class="flex items-center space-x-2">
-          <img src="../img/logo2.png" alt="Logo" class="w-10 h-10" />
+          <img src="https://media.discordapp.net/attachments/1369959680247463977/1369961059695460412/image.png?ex=681dc329&is=681c71a9&hm=59345d2633f4c3372fcb6ba6ae095a60e712d6ac3315ac963443c0cdd3a4da07&=&format=webp&quality=lossless" alt="Logo" class="w-10 h-10" />
           <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
         </a>
 
@@ -147,14 +149,15 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between space-x-20 mx-8 items-center">
         <div class="flex justify-around space-x-20">
-        <a href="?buddhist" class="text-black font-medium hover:text-gray-300 transition">พุทธ</a>
-        <a href="?chistian" class="text-black font-medium hover:text-gray-300 transition">คริสต์</a>
-        <a href="?islamic" class="text-black font-medium hover:text-gray-300 transition">อิสลาม</a>
-        <a href="?god" class="text-black font-medium hover:text-gray-300 transition">เทพเจ้า</a>
-        <a href="?etc" class="text-black font-medium hover:text-gray-300 transition">อื่น ๆ</a>
+        <a href="market.php" class="text-black font-medium hover:text-gray-300 transition">ทั้งหมด</a>
+        <a href="market.php?category=buddhist" class="text-black font-medium hover:text-gray-300 transition">พุทธ</a>
+        <a href="market.php?category=christian" class="text-black font-medium hover:text-gray-300 transition">คริสต์</a>
+        <a href="market.php?category=islamic" class="text-black font-medium hover:text-gray-300 transition">อิสลาม</a>
+        <a href="market.php?category=god" class="text-black font-medium hover:text-gray-300 transition">เทพเจ้า</a>
+        <a href="market.php?category=others" class="text-black font-medium hover:text-gray-300 transition">อื่น ๆ</a>
         </div>
         <div class="flex justify-end space-x-20">
-        <a href="" class="text-black font-medium hover:text-gray-300 transition bg-white px-4 py-2 rounded-lg">Order</a>
+        <a href="#" class="text-black font-medium hover:text-gray-300 transition bg-white px-4 py-2 rounded-lg">Order</a>
         </div>
         <!-- <a href="#" class="text-white font-medium hover:text-gray-300 transition"></a>
         <a href="#" class="text-white font-medium hover:text-gray-300 transition">Reports</a> -->

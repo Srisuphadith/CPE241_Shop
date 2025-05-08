@@ -1,5 +1,7 @@
-<?php require_once("../conn.php"); ?>
-<?php session_start(); 
+<?php 
+require_once("../conn.php");
+require_once("setup.php");
+session_start(); 
     if(!(isset($_SESSION["userID"]))){
         header("Location: ../admin/sign_in.php");
         exit();
@@ -10,7 +12,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6">
       <!-- Logo -->
         <a href="#" class="flex items-center space-x-2">
-          <img src="../img/logo2.png" alt="Logo" class="w-10 h-10" />
+          <img src="https://media.discordapp.net/attachments/1369959680247463977/1369961059695460412/image.png?ex=681dc329&is=681c71a9&hm=59345d2633f4c3372fcb6ba6ae095a60e712d6ac3315ac963443c0cdd3a4da07&=&format=webp&quality=lossless" alt="Logo" class="w-10 h-10" />
           <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
         </a>
 

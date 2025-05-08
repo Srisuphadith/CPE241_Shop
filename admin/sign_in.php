@@ -43,7 +43,7 @@
   if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $stmt = $conn->prepare("SELECT user_ID, firstName, `role`,password_hash FROM tbl_users WHERE userName = ?");
+    $stmt = $conn->prepare("SELECT user_ID, firstName, `role`,password_hash FROM tbl_users WHERE userName = ? and role = 'admin'");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();

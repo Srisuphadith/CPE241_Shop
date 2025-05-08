@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>manage_user</title>
 </head>
+  
   <body class = "bg-w-full bg-[#2E282A] mr-8 ml-8" >
     <?php require_once("../navbar/nav_admin.php"); ?>
     <div class="container mx-auto px-4 py-8">
@@ -78,10 +79,11 @@
                         </td>";
 
                   // Buttons
+                  // <button onclick='deleteUser({$row['user_ID']})' class='bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs'>Delete</button>
                   echo "<td class='px-4 py-2 flex gap-2'>
                           <button onclick='editUser({$row['user_ID']})' class='bg-orange-400 hover:bg-orange-500 text-white px-3 py-1 rounded text-xs'>Edit</button>
                           <button onclick='saveUser({$row['user_ID']})' class='bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-xs'>Save</button>
-                          <button onclick='deleteUser({$row['user_ID']})' class='bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs'>Delete</button>
+                          
                         </td>";
           
                   echo "</tr>";
@@ -111,7 +113,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $result = $conn->query("SELECT * FROM user_public WHERE role = 'admin'" );
+                    $result = $conn->query("SELECT * FROM tbl_users WHERE role = 'admin'" );
                     while($row = $result->fetch_assoc()) {
                         echo "<tr class='border-b hover:bg-gray-100'>";
                         echo "<td class='px-4 py-2'>{$row['user_ID']}</td>";
@@ -142,7 +144,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $result = $conn->query("SELECT * FROM user_public WHERE role = 'user'" );
+                    $result = $conn->query("SELECT * FROM tbl_users WHERE role = 'user'" );
                     while($row = $result->fetch_assoc()) {
                         echo "<tr class='border-b hover:bg-gray-100'>";
                         echo "<td class='px-4 py-2'>{$row['user_ID']}</td>";
@@ -157,47 +159,109 @@
             </table>
         </div>
     </div>
+    <div class="container mx-auto px-4 py-8 ">
+        <h2 class="text-2xl font-semibold mb-6 text-center text-orange-500">Seller List</h2>
+
+        <div class="overflow-x-auto shadow-lg rounded-lg">
+            <table class="min-w-full text-sm text-left text-gray-700 bg-white border border-gray-200">
+                <thead class="bg-gray-200 text-gray-700 uppercase text-xs">
+                    <tr>
+                        <th class="px-4 py-3">User ID</th>
+                        <th class="px-4 py-3">First Name</th>
+                        <th class="px-4 py-3">Middle Name</th>
+                        <th class="px-4 py-3">Last Name</th>
+                        <th class="px-4 py-3">Username</th>
+                        <th class="px-4 py-3">Shop Name</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $result = $conn->query("
+                    SELECT 
+                      U.user_ID,
+                      U.firstName,
+                      U.midName,
+                      U.lastName,
+                      U.userName,
+                      S.shopName
+                    FROM tbl_users U
+                    JOIN tbl_shops S ON S.user_ID = U.user_ID
+                    WHERE U.role = 'seller';
+
+                    ");
+
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr class='border-b hover:bg-gray-100'>";
+                        echo "<td class='px-4 py-2'>{$row['user_ID']}</td>";
+                        echo "<td class='px-4 py-2'>{$row['firstName']}</td>";
+                        echo "<td class='px-4 py-2'>{$row['midName']}</td>";
+                        echo "<td class='px-4 py-2'>{$row['lastName']}</td>";
+                        echo "<td class='px-4 py-2'>{$row['userName']}</td>";
+                        echo "<td class='px-4 py-2'>{$row['shopName']}</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
   </body>
-<script>
-  function editUser(userID) {
-    document.getElementById(`fname-${userID}`).disabled = false;
-    document.getElementById(`mname-${userID}`).disabled = false;
-    document.getElementById(`lname-${userID}`).disabled = false;
-    document.getElementById(`role-${userID}`).disabled = false;
-  }
+  <script >
+    function editUser(userID) {
+      document.getElementById(`fname-${userID}`).disabled = false;
+      document.getElementById(`mname-${userID}`).disabled = false;
+      document.getElementById(`lname-${userID}`).disabled = false;
+      document.getElementById(`role-${userID}`).disabled = false;
+    }
 
-  function saveUser(userID) {
-    const firstName = document.getElementById(`fname-${userID}`).value;
-    const midName = document.getElementById(`mname-${userID}`).value;
-    const lastName = document.getElementById(`lname-${userID}`).value;
-    const role = document.getElementById(`role-${userID}`).value;
-    
+    function saveUser(userID) {
+      const firstName = document.getElementById(`fname-${userID}`).value;
+      const midName = document.getElementById(`mname-${userID}`).value;
+      const lastName = document.getElementById(`lname-${userID}`).value;
+      const role = document.getElementById(`role-${userID}`).value;
 
-    fetch('update.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `id=${userID}&firstName=${encodeURIComponent(firstName)}&midName=${encodeURIComponent(midName)}&lastName=${encodeURIComponent(lastName)}&role=${encodeURIComponent(role)}`
 
-    })
-    .then(response => response.text())
-    .then(result => {
-      alert(result);
-      location.reload(); // อัปเดตข้อมูลใหม่หลังเซฟ
-    });
-  }
+      fetch('update.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `id=${userID}&firstName=${encodeURIComponent(firstName)}&midName=${encodeURIComponent(midName)}&lastName=${encodeURIComponent(lastName)}&role=${encodeURIComponent(role)}`
 
+      })
+      .then(response => response.text())
+      .then(result => {
+        alert(result);
+        location.reload(); // อัปเดตข้อมูลใหม่หลังเซฟ
+      });
+    }
+
+  // ฟังก์ชันสำหรับลบผู้ใช้ตาม userID ที่ส่งเข้ามา
   function deleteUser(userID) {
+    // แสดงกล่องยืนยันก่อนลบ
     if (confirm("Are you sure you want to delete this user?")) {
+
+      // เรียกไปที่ delete.php พร้อมส่ง userID เป็นพารามิเตอร์ผ่าน GET
       fetch(`delete.php?id=${userID}`, { method: 'GET' })
         .then(response => {
+          // ตรวจสอบว่า server ตอบกลับด้วยสถานะ 200 (OK) หรือไม่
           if (response.ok) {
+            // โหลดหน้าใหม่เพื่อแสดงผลลัพธ์หลังจากลบเสร็จ
             location.reload();
           } else {
-            alert('Error deleting user.');
+            // ถ้าไม่ใช่ 200 ให้แสดงข้อความ error จาก server
+            return response.text().then(text => {
+              alert('Error deleting user: ' + text);
+            });
           }
+        })
+        .catch(error => {
+          // ถ้า fetch เจอปัญหา เช่น server ไม่ตอบกลับ
+          alert('Network error: ' + error);
         });
     }
   }
-</script>
+  </script>
+
+
 
 </html>
