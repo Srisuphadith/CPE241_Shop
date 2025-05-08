@@ -1,0 +1,55 @@
+.poppins-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+.montserrat-font {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.bg-soft-white {
+    background-color: #EEF0F2;
+}
+
+.bg-dark-orange {
+    background-color: #FF9020;
+}
+
+.bg-soft-black {
+    background-color: #2E282A;
+}
+
+.bg-soft-orange {
+    background-color: #FFA600;
+}
+
+.bg-softest-orange {
+    background-color: #FFC677;
+}
+
+.text-soft-white {
+    color: #EEF0F2;
+}
+
+.text-dark-orange {
+    color: #FF9020;
+}
+
+.text-soft-black {
+    color: #2E282A;
+}
+
+.text-soft-orange {
+    color: #FFA600;
+}
+
+.text-softest-orange {
+    color: #FFC677;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: green;
+}
