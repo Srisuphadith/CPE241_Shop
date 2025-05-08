@@ -20,7 +20,6 @@ for($i=0;$i<10;$i++){
 
 <div class="bg-white py-[120px] rounded-lg">
 
-
 </div>
 
 <?php
