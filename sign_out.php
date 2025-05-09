@@ -7,6 +7,6 @@ if($_SESSION['role'] == 'admin'){
 }else{
     session_unset();
     session_destroy();
-    header("Location: auth/index.php");
+    header("Location: /index.php");
 }
 ?>
