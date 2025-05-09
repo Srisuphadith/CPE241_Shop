@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mongkol</title>
-    <?php require_once("../conn.php"); ?>
+    <?php require_once("conn.php"); ?>
 </head>
 <body class="bg-gray-900 min-h-screen flex flex-col md:flex-row justify-center items-center gap-10 p-6">
 
@@ -18,11 +18,11 @@
     <div class="bg-white p-6 rounded-xl shadow-lg max-w-md w-full h-72 text-center">
         <h2 class="text-2xl font-bold mb-4 text-gray-800">Welcome to Mongkol!</h2>
         
-        <a href="sign_up.php" class="block bg-orange-500 text-white text-lg font-bold py-2 rounded-full mb-2 hover:bg-orange-600 transition">Sign Up</a>
+        <a href="auth/sign_up.php" class="block bg-orange-500 text-white text-lg font-bold py-2 rounded-full mb-2 hover:bg-orange-600 transition">Sign Up</a>
         
         <p class="text-sm text-gray-500 my-2">------------------- or -------------------</p>
         
-        <a href="sign_in.php" class="block border border-orange-500 text-orange-500 text-lg font-bold py-2 rounded-full hover:bg-orange-100 transition">Sign In</a>
+        <a href="auth/sign_in.php" class="block border border-orange-500 text-orange-500 text-lg font-bold py-2 rounded-full hover:bg-orange-100 transition">Sign In</a>
         
         <p class="text-xs text-gray-600 mt-4">
             By creating an account, I accept Mongkol's <br>
