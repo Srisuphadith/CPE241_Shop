@@ -17,7 +17,7 @@
             $quantity = $_POST['quantity'];
             $img_name = $_FILES["fileToUpload"]["name"];
             $shop_ID = $_SESSION['shop_ID'];
-
+            $img_name = "img/".$img_name;
             $target_dir = "../img/";
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
             $uploadOk = 1;

@@ -17,7 +17,7 @@ require_once("../navbar/nav_user.php");
     <?php
     session_start();
     $_SESSION['shop_ID'] = $shopID;
-    $stmt = $conn->prepare("SELECT product_ID,description,price FROM tbl_products WHERE shop_ID = ? AND is_delete = 0");
+    $stmt = $conn->prepare("SELECT product_ID,productName,price,imgPath FROM tbl_products WHERE shop_ID = ? AND is_delete = 0");
     $stmt->bind_param("s",$shopID);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -28,11 +28,11 @@ require_once("../navbar/nav_user.php");
     <div class="bg-white rounded-lg flex flex-col">
     
         <div class="p-[10px]">
-            <img src="../img/pro_1.png" class=" object-contain rounded-3xl">
+            <img src="../<?php echo $row['imgPath']; ?>" class=" w-full h-40 object-cover rounded-md mb-1">
         </div>
     
         <div class="pl-[10px] pb-[20px] felx flex-col">
-            <div><?php echo $row['description']; ?></div>
+            <div><?php echo $row['productName']; ?></div>
             <div class = "flex felx-row gap-2 pt-[20px]">
                 <div><a href="edit_product.php?proID=<?php echo $row['product_ID']; ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">Edit</a></div>
                 <div><a href="delete_product.php?proID=<?php echo $row['product_ID']; ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded">Delete</a></div>

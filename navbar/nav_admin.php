@@ -29,8 +29,8 @@ session_start();
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between space-x-20 mx-8">
         <a href="../admin/manage_user.php" class="text-white font-medium hover:text-gray-300 transition">Users Management</a>
-        <a href="../admin/coupon.php" class="text-white font-medium hover:text-gray-300 transition">Coupons Management</a>
-        <a href="#" class="text-white font-medium hover:text-gray-300 transition">Payment</a>
+        <a href="../admin/manage_coupon.php" class="text-white font-medium hover:text-gray-300 transition">Coupons Management</a>
+        <a href="../admin/payment.php" class="text-white font-medium hover:text-gray-300 transition">Payment</a>
         <a href="#" class="text-white font-medium hover:text-gray-300 transition">Reports</a>
       </div>
     </div>

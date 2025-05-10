@@ -23,33 +23,16 @@ session_start();
         $currentPage = basename($_SERVER['PHP_SELF']);
         if (in_array($currentPage, ["market.php", "cart.php", "product.php", "product_detail.php"])) { 
         ?>
-        <form id="search-form" class="relative flex items-center w-full max-w-xs">
-            <input type="text" id="search-input" name="query" placeholder="Search" class="px-4 py-2 rounded-sm" required>
-            <i class="fas fa-search absolute right-3 text-gray-400"></i>
+        <form id="search-form" class="relative flex items-center w-full max-w-xs" action="../user/market.php" method="GET">
+            <?php if (isset($_GET['category'])): ?>
+                <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']); ?>">
+            <?php endif; ?>
+            <input type="text" id="search-input" name="query" placeholder="Search" class="px-4 py-2 rounded-sm" value="<?php echo isset($_GET['query']) ? htmlspecialchars($_GET['query']) : ''; ?>" required>
+            <button type="submit" class="absolute right-3">
+                <i class="fas fa-search text-gray-400"></i>
+            </button>
         </form>
         <?php } ?>
-        <script>
-    $(document).ready(function() {
-        $('#search-input').on('keypress', function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                var query = $(this).val();
-
-                $.ajax({
-                    url: 'search.php',
-                    method: 'GET',
-                    data: { query: query },
-                    success: function(response) {
-                        $('#search-results').html(response);
-                    },
-                    error: function() {
-                        $('#search-results').html('<p>An error occurred. Please try again.</p>');
-                    }
-                });
-            }
-        });
-    });
-</script>
     </div>
       <!-- Admin name & Logout -->
       <div class="flex items-center space-x-4">
@@ -76,9 +59,7 @@ session_start();
           ?>
         </a>
         <a href="../seller/order_list.php" class="text-black font-medium hover:text-gray-300 transition">Order List</a>
-        <a href="#" class="text-black font-medium hover:text-gray-300 transition">Product Management</a>
-        <a href="#" class="text-black font-medium hover:text-gray-300 transition">Discount Management</a>
-        <a href="#" class="text-black font-medium hover:text-gray-300 transition">Report</a>
+        <a href="../seller/report_seller.php" class="text-black font-medium hover:text-gray-300 transition">Report</a>
         <a href="../seller/add_product.php" class="text-black font-medium hover:text-gray-300 transition">Add Product</a>
         </div>
         <!-- <a href="#" class="text-white font-medium hover:text-gray-300 transition"></a>
@@ -98,7 +79,7 @@ session_start();
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6">
       <!-- Logo -->
         <a href="../user/market.php" class="flex items-center space-x-2">
-          <img src="https://media.discordapp.net/attachments/1369959680247463977/1369961059695460412/image.png?ex=681dc329&is=681c71a9&hm=59345d2633f4c3372fcb6ba6ae095a60e712d6ac3315ac963443c0cdd3a4da07&=&format=webp&quality=lossless" alt="Logo" class="w-10 h-10" />
+          <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369961059695460412/image.png?ex=681f14a9&is=681dc329&hm=19a29a779e8a01fe436f7e255a46191c7987c12d8c32d72f14a92936bdcbb8d8&" alt="Logo" class="w-10 h-10" />
           <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
         </a>
 
@@ -107,33 +88,16 @@ session_start();
         $currentPage = basename($_SERVER['PHP_SELF']);
         if (in_array($currentPage, ["market.php", "cart.php", "product.php", "product_detail.php"])) { 
         ?>
-        <form id="search-form" class="relative flex items-center w-full max-w-xs">
-            <input type="text" id="search-input" name="query" placeholder="Search" class="px-4 py-2 rounded-sm" required>
-            <i class="fas fa-search absolute right-3 text-gray-400"></i>
+        <form id="search-form" class="relative flex items-center w-full max-w-xs" action="../user/market.php" method="GET">
+            <?php if (isset($_GET['category'])): ?>
+                <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']); ?>">
+            <?php endif; ?>
+            <input type="text" id="search-input" name="query" placeholder="Search" class="px-4 py-2 rounded-sm" value="<?php echo isset($_GET['query']) ? htmlspecialchars($_GET['query']) : ''; ?>" required>
+            <button type="submit" class="absolute right-3">
+                <i class="fas fa-search text-gray-400"></i>
+            </button>
         </form>
         <?php } ?>
-        <script>
-    $(document).ready(function() {
-        $('#search-input').on('keypress', function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                var query = $(this).val();
-                $.ajax({
-                    url: 'search.php',
-                    method: 'GET',
-                    data: { query: query },
-                    success: function(response) {
-                        $('#search-results').html(response);
-                    },
-                    error: function() {
-                        $('#search-results').html('<p>An error occurred. Please try again.</p>');
-                    }
-                });
-            }
-        });
-    });
-</script>
-
     </div>
       <!-- Admin name & Logout -->
       <div class="flex items-center space-x-4">

@@ -7,26 +7,22 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="m-4 bg-soft-black">
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const url = new URL(window.location);
-        if (url.searchParams.has("category")) {
-            url.searchParams.delete("category");
-            window.history.replaceState({}, document.title, url.toString());
-        }
-    });
-    </script>
     <?php require_once("../navbar/nav_user.php"); 
     $filter = "WHERE p.is_delete = 0"; 
+    // session_unset();
+    // Handle category filter
     if (isset($_GET['category'])) {
         $category = $_GET['category'];
         $allowed_categories = ['buddhist', 'christian', 'islamic', 'god', 'others'];
-        // Sanitize input by checking against expected values
         if (in_array($category, $allowed_categories)) {
-            $filter = "WHERE p.is_delete = 0 AND c.cateName = '" . mysqli_real_escape_string($conn, $category) . "'";
+            $filter .= " AND c.cateName = '" . mysqli_real_escape_string($conn, $category) . "'";
         }
-    }else{
-        $filter = "WHERE p.is_delete = 0"; 
+    }
+    
+    // Handle search query
+    if (isset($_GET['query']) && !empty($_GET['query'])) {
+        $searchQuery = mysqli_real_escape_string($conn, $_GET['query']);
+        $filter .= " AND (p.productName LIKE '%$searchQuery%' OR p.description LIKE '%$searchQuery%')";
     }
     ?>
 <!-- Improved Banner Carousel with Navigation Controls and Indicators -->
@@ -34,13 +30,13 @@
     <!-- Banner Images Track -->
     <div id="bannerTrack" class="flex transition-transform duration-500 ease-in-out h-full">
         <div class="w-full flex-shrink-0">
-            <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369963861305720913/CPE241_-_Banner.png?ex=681dc5c5&is=681c7445&hm=3966eac155bf29e623f32055190f795c50f5b7e164c45b1bf3a790a6217e1b10&" alt="banner-ganesha" class="w-full h-full object-cover text-soft-white text-center bg-soft-white">
+            <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369960332780507206/1.png?ex=681f13fb&is=681dc27b&hm=69e4029bd51a92fe5e2663694f47f54797204a32a20e395e050aca148b8c8c5f&" alt="banner-ganesha" class="w-full h-full object-cover text-soft-white text-center bg-soft-white">
         </div>
         <div class="w-full flex-shrink-0">
-            <img src="https://media.discordapp.net/attachments/1369959680247463977/1369960364351164476/2.png?ex=681dc283&is=681c7103&hm=d0fe9520c656614ba2865f4844aa03aef6856674f337358a58d2ce6183120066&=&format=webp&quality=lossless&width=1872&height=585" alt="banner-reakna" class="w-full h-full object-cover text-soft-white text-center bg-soft-white">
+            <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369963861305720913/CPE241_-_Banner.png?ex=681f1745&is=681dc5c5&hm=94c92f6738eb587e9b1867f636ef49b1a5c001c46b7f6cc973fb66909ded065b&" alt="banner-reakna" class="w-full h-full object-cover text-soft-white text-center bg-soft-white">
         </div>
         <div class="w-full flex-shrink-0">
-            <img src="https://media.discordapp.net/attachments/1369959680247463977/1369960332780507206/1.png?ex=681dc27b&is=681c70fb&hm=ef9a69b92364035cadaff551cfbf2fdc2bae607fbc8c5635b72a5b3463b1abad&=&format=webp&quality=lossless&width=1872&height=585" alt="banner-sati" class="w-full h-full object-cover text-soft-white text-center bg-soft-white">
+            <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369960364351164476/2.png?ex=681f1403&is=681dc283&hm=c67e311454c909bb22e738d1b1781e5980a447686d23af5681e92cdbe6e947a2&" alt="banner-sati" class="w-full h-full object-cover text-soft-white text-center bg-soft-white">
         </div>
     </div>
     
@@ -237,7 +233,7 @@
         while($row = mysqli_fetch_assoc($result)){ ?>
             <a href="product_detail.php?product_ID=<?php echo $row['product_ID']; ?>" class="hover:shadow-lg transition-shadow duration-200 rounded-md">
                 <div class="poppins-font flex flex-col justify-between py-1 px-2 rounded-md bg-soft-white h-full">
-                    <img src="<?php echo $row["imgPath"]; ?>" alt="<?php echo $row["productName"]; ?>" class="w-full h-40 object-cover rounded-md mb-1">
+                    <img src="../<?php echo $row["imgPath"]; ?>" alt="<?php echo $row["productName"]; ?>" class="w-full h-40 object-cover rounded-md mb-1">
                     <div>
                         <p class="poppins-font text-sm line-clamp-2 h-10 overflow-hidden"><?php echo $row["productName"]; ?></p>
                         <div class="flex justify-between items-end mt-1">
@@ -269,9 +265,5 @@
     ?>
 </div>
 
-
-
-
-        <div id="search-results"></div>
 </body>
 </html>

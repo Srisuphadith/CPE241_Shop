@@ -74,9 +74,9 @@ CREATE TABLE `tbl_products` (
 
 CREATE TABLE `tbl_product_stats` (
     `product_ID` int(11) NOT NULL,
-    `addToCart` int(11) DEFAULT NULL,
-    `visit` int(11) DEFAULT NULL,
-    `numSold` int(11) DEFAULT NULL,
+    `addToCart` int(11) DEFAULT 0,
+    `visit` int(11) DEFAULT 0,
+    `numSold` int(11) DEFAULT 0,
     `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
     PRIMARY KEY (`product_ID`),
     FOREIGN KEY (`product_ID`) REFERENCES `tbl_products` (`product_ID`)

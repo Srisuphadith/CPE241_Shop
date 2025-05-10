@@ -60,6 +60,7 @@ if (isset($_POST['submit'])){
             echo "Sorry, there was an error uploading your file.";
                 }
     }
+    $img_name = "img/".$img_name;
     $stmt = $conn->prepare("UPDATE tbl_products SET cate_ID = ?, productName = ?, description = ?, price = ?, quantity = ?, imgPath = ? WHERE product_ID = ?");
     $stmt->bind_param("sssssss",$cate_ID,$productName,$description,$price,$quantity,$img_name,$proID);
     $stmt->execute();
