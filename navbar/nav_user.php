@@ -14,7 +14,7 @@ session_start();
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6">
       <!-- Logo -->
         <a href="../user/market.php" class="flex items-center space-x-2">
-          <img src="https://media.discordapp.net/attachments/1369959680247463977/1369961059695460412/image.png?ex=681dc329&is=681c71a9&hm=59345d2633f4c3372fcb6ba6ae095a60e712d6ac3315ac963443c0cdd3a4da07&=&format=webp&quality=lossless" alt="Logo" class="w-10 h-10" />
+          <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369961059695460412/image.png?ex=68206629&is=681f14a9&hm=fa3eabd096bc305e538ad887a8451261662bb6171284042bb953a26195c9c0d5&" alt="Logo" class="w-10 h-10" />
           <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
         </a>
 
@@ -101,9 +101,9 @@ session_start();
     </div>
       <!-- Admin name & Logout -->
       <div class="flex items-center space-x-4">
-        <p class="text-white flex items-center font-medium">Hello, <?php echo $_SESSION["firstName"]; ?></p>
+        <p class="text-white poppins-font items-center font-medium">Hello, <?php echo $_SESSION["firstName"]; ?></p>
         <a href="../user/cart.php" class="relative inline-block text-white px-4"><i class="fas fa-shopping-cart"></i></a>
-        <a href="../sign_out.php" class="text-orange-400 hover:text-red-500 font-semibold pl-4">Logout</a>
+        <a href="../sign_out.php" class="text-orange-400 hover:text-red-500 poppins-font pl-4">Logout</a>
       </div>
     </div>
   </div>
@@ -113,15 +113,15 @@ session_start();
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between space-x-20 mx-8 items-center">
         <div class="flex justify-around space-x-20">
-        <a href="market.php" class="text-black font-medium hover:text-gray-300 transition">ทั้งหมด</a>
-        <a href="market.php?category=buddhist" class="text-black font-medium hover:text-gray-300 transition">พุทธ</a>
-        <a href="market.php?category=christian" class="text-black font-medium hover:text-gray-300 transition">คริสต์</a>
-        <a href="market.php?category=islamic" class="text-black font-medium hover:text-gray-300 transition">อิสลาม</a>
-        <a href="market.php?category=god" class="text-black font-medium hover:text-gray-300 transition">เทพเจ้า</a>
-        <a href="market.php?category=others" class="text-black font-medium hover:text-gray-300 transition">อื่น ๆ</a>
+        <a href="market.php" class="text-xl poppins-font hover:text-gray-300 transition">ทั้งหมด</a>
+        <a href="market.php?category=buddhist" class="text-xl poppins-font hover:text-gray-300 transition">พุทธ</a>
+        <a href="market.php?category=christian" class="text-xl poppins-font hover:text-gray-300 transition">คริสต์</a>
+        <a href="market.php?category=islamic" class="text-xl poppins-font hover:text-gray-300 transition">อิสลาม</a>
+        <a href="market.php?category=god" class="text-xl poppins-font hover:text-gray-300 transition">เทพเจ้า</a>
+        <a href="market.php?category=others" class="text-xl poppins-font hover:text-gray-300 transition">อื่น ๆ</a>
         </div>
         <div class="flex justify-end space-x-20">
-        <a href="#" class="text-black font-medium hover:text-gray-300 transition bg-white px-4 py-2 rounded-lg">Order</a>
+        <a href="#" class="text-black poppins-font hover:text-gray-300 transition bg-white px-4 py-2 rounded-lg">Order</a>
         </div>
         <!-- <a href="#" class="text-white font-medium hover:text-gray-300 transition"></a>
         <a href="#" class="text-white font-medium hover:text-gray-300 transition">Reports</a> -->

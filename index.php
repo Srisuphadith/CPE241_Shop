@@ -10,7 +10,7 @@
 
     <!-- Image and Title -->
     <div class="text-center">
-        <img src="../img/mongkol1.jpg" alt="Mongkol Img" class="w-72 h-72 rounded-xl mx-auto ">
+        <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1370687575005728828/logo_full.png?ex=682067c8&is=681f1648&hm=62e2dcaeef76d0862baa47676592ffb6b7de79e24aa38a0ec4aad8a0c73a8328&" alt="Mongkol Img" class="w-72 h-72 rounded-xl mx-auto ">
         <!-- <p class="text-5xl font-bold text-orange-500">MONGKOL</p> -->
     </div>
 
