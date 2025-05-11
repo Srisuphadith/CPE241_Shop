@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
     require_once("../navbar/nav_user.php");
 ?>
     <div class="w-full max-w-xl ml-auto mr-auto bg-white rounded pt-[20px]">
-        <div class="font-bold text-red text-center text-3xl pb-[20px]">Are you sure to delete product</div>
+        <div class="font-bold text-red text-center text-3xl pb-[20px]">Are you sure to delete address</div>
 
         <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
             <div class="flex flex-row gap-10 w-fit ml-auto mr-auto pb-[20px]">
