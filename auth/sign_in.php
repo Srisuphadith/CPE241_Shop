@@ -90,10 +90,10 @@
 
   <h2 class="montserrat-font text-5xl text-center pb-8 font-bold">Sign In</h2>
   <form action="#" method="post" class="flex flex-col justify-center items-center">
-    <p><label for="username" class="poppins-font text-lg">Username</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="username" name="username" required></p><br>
-    <p><label for="password" class="poppins-font text-lg">Password</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="password" placeholder="********" name="password" required></p><br>
-    <input type="submit" name="submit" value="Sign In" class="font-bold text-2xl montserrat-font bg-dark-orange px-14 py-1 rounded-2xl"><br>
-    <p class="poppins-font text-xs my-2">Don't Have an account yet <a href="sign_up.php" class="text-dark-orange">Sign Up!</a></p>
+    <p><label for="username" class="ibm-plex-sans-thai-semibold text-lg">Username</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="username" name="username" required></p><br>
+    <p><label for="password" class="ibm-plex-sans-thai-semibold text-lg">Password</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="password" placeholder="********" name="password" required></p><br>
+    <input type="submit" name="submit" value="Sign In" class="font-bold text-xl montserrat-font bg-dark-orange px-14 py-1 rounded-2xl"><br>
+    <p class="ibm-plex-sans-thai-regular text-xs my-2">Don't Have an account yet <a href="sign_up.php" class="text-dark-orange">Sign Up!</a></p>
   </form>
 </body>
 </html>

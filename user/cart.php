@@ -105,13 +105,13 @@ if (!empty($unavailable_items)) {
     </div>
 
     <div class="max-w-7xl mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-white mb-8">Shopping Cart</h1>
+        <h1 class="text-3xl ibm-plex-sans-thai-bold text-white mb-8">Shopping Cart</h1>
 
         <?php if (empty($items)): ?>
             <div class="text-center py-12">
                 <i class="fas fa-shopping-cart text-6xl text-gray-400 mb-4"></i>
-                <p class="text-xl text-gray-400">Your cart is empty</p>
-                <a href="market.php" class="inline-block mt-4 px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
+                <p class="text-2xl ibm-plex-sans-thai-bold text-gray-400">Your cart is empty</p>
+                <a href="market.php" class="inline-block mt-4 px-6 py-2 bg-orange-500 text-white ibm-plex-sans-thai-semibold rounded-lg hover:bg-orange-600 transition">
                     Continue Shopping
                 </a>
             </div>
@@ -124,9 +124,9 @@ if (!empty($unavailable_items)) {
                             <div class="flex justify-between items-center mb-4">
                                 <div class="flex items-center">
                                     <input type="checkbox" id="select-all" class="mr-2 h-5 w-5 text-orange-500 rounded border-gray-300 focus:ring-orange-500">
-                                    <label for="select-all" class="text-lg font-semibold">Select All</label>
+                                    <label for="select-all" class="text-lg ibm-plex-sans-thai-semibold">Select All</label>
                                 </div>
-                                <button type="button" onclick="removeSelected()" class="text-red-500 hover:text-red-700">
+                                <button type="button" onclick="removeSelected()" class="text-red-500 ibm-plex-sans-thai-medium hover:text-red-700">
                                     <i class="fas fa-trash"></i> Remove Selected
                                 </button>
                             </div>
@@ -140,7 +140,7 @@ if (!empty($unavailable_items)) {
                                          class="w-24 h-24 object-cover rounded-lg">
                                     
                                     <div class="ml-4 flex-grow">
-                                        <h3 class="text-lg font-semibold"><?php echo htmlspecialchars($item['productName']); ?></h3>
+                                        <h3 class="text-lg ibm-plex-sans-thai-semibold"><?php echo htmlspecialchars($item['productName']); ?></h3>
                                         <p class="text-gray-600">฿<?php echo number_format($item['price'], 2); ?></p>
                                         <div class="flex items-center mt-2">
                                             <button type="button" onclick="updateQuantity(<?php echo $item['product_ID']; ?>, 'decrease')" 
@@ -156,7 +156,7 @@ if (!empty($unavailable_items)) {
                                     </div>
                                     
                                     <div class="ml-4 text-right">
-                                        <p class="text-lg font-semibold">฿<?php echo number_format($item['price'] * $item['quantity'], 2); ?></p>
+                                        <p class="text-lg ibm-plex-sans-thai-semibold">฿<?php echo number_format($item['price'] * $item['quantity'], 2); ?></p>
                                         <button type="button" onclick="removeItem(<?php echo $item['product_ID']; ?>)" 
                                                 class="text-red-500 hover:text-red-700 mt-2">
                                             <i class="fas fa-trash"></i>
@@ -170,11 +170,11 @@ if (!empty($unavailable_items)) {
                     <!-- Order Summary -->
                     <div class="lg:col-span-1">
                         <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+                            <h2 class="text-xl ibm-plex-sans-thai-semibold mb-4">Order Summary</h2>
                             
                             <!-- Coupon Section -->
                             <div class="mb-6">
-                                <h3 class="text-lg font-semibold mb-2">Coupon Usage</h3>
+                                <h3 class="text-lg ibm-plex-sans-thai-semibold mb-2">Coupon Usage</h3>
                                 <div class="flex items-center space-x-2">
                                     <input type="text" id="coupon-code" placeholder="Enter coupon code" 
                                            class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
@@ -189,28 +189,28 @@ if (!empty($unavailable_items)) {
                             <div class="space-y-3 mb-6">
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Subtotal</span>
-                                    <span id="subtotal" class="font-semibold">฿<?php echo number_format($subtotal, 2); ?></span>
+                                    <span id="subtotal" class="ibm-plex-sans-thai-semibold">฿<?php echo number_format($subtotal, 2); ?></span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Shipping</span>
-                                    <span class="font-semibold">฿<?php echo number_format($shipping, 2); ?></span>
+                                    <span class="ibm-plex-sans-thai-semibold">฿<?php echo number_format($shipping, 2); ?></span>
                                 </div>
                                 <?php if ($discount > 0): ?>
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Discount (<?php echo $discount; ?>%)</span>
-                                    <span id="discount-amount" class="font-semibold text-green-600">-฿<?php echo number_format($discount_amount, 2); ?></span>
+                                    <span id="discount-amount" class="ibm-plex-sans-thai-semibold text-green-600">-฿<?php echo number_format($discount_amount, 2); ?></span>
                                 </div>
                                 <?php endif; ?>
                                 <div class="border-t pt-3">
                                     <div class="flex justify-between">
-                                        <span class="text-lg font-semibold">Total</span>
-                                        <span id="total" class="text-lg font-semibold">฿<?php echo number_format($total, 2); ?></span>
+                                        <span class="text-lg ibm-plex-sans-thai-semibold">Total</span>
+                                        <span id="total" class="text-lg ibm-plex-sans-thai-semibold">฿<?php echo number_format($total, 2); ?></span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Checkout Button -->
-                            <button type="submit" class="w-full bg-orange-500 text-white py-3 px-4 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                            <button type="submit" class="w-full bg-orange-500 text-white py-3 px-4 rounded-lg hover:bg-orange-600 transition-colors ibm-plex-sans-thai-semibold">
                                 Proceed to Checkout
                             </button>
                         </div>
@@ -294,7 +294,7 @@ if (!empty($unavailable_items)) {
                     // Update item total
                     const itemElement = document.querySelector(`[data-product-id="${productId}"]`);
                     if (itemElement && data.itemTotal) {
-                        const totalElement = itemElement.querySelector('.text-lg.font-semibold');
+                        const totalElement = itemElement.querySelector('.text-lg.ibm-plex-sans-thai-semibold');
                         if (totalElement) {
                             totalElement.textContent = `฿${data.itemTotal}`;
                         }

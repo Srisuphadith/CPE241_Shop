@@ -21,7 +21,7 @@
   <div class="ms-3 text-sm font-medium">
 
 
-    <?php echo "<p class=\"text-red poppins-font text-xs\">$message</p>"; ?>
+    <?php echo "<p class=\"text-red ibm-plex-sans-thai-semibold text-xs\">$message</p>"; ?>
 
     </div>
   <button onclick="closeAlert()" class="ms-auto -mx-1.5 -my-1.5 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-50 inline-flex items-center justify-center h-8 w-8 dark:text-red-400 dark:hover:bg-red-100" aria-label="Close">
@@ -81,7 +81,7 @@
   <div class="ms-3 text-sm font-medium">
     <?php
       foreach ($error as $err) {
-        echo "<p class=\"text-red poppins-font text-xs\">$err</p>";
+        echo "<p class=\"text-red ibm-plex-sans-thai-semibold text-xs\">$err</p>";
       }
     ?>
   </div>
@@ -156,12 +156,12 @@
   ?>
   <h2 class="montserrat-font text-5xl text-center pb-8 font-bold">Sign Up</h2>  
   <form action="sign_up.php" method="post" class="flex flex-col justify-center items-center">
-    <p><label for="Full Name" class="poppins-font text-lg">Full Name</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="Ex. Arno P Scazam" name="fullname"></p><br>
-    <p><label for="Phone" class="poppins-font text-lg">Phone</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="Main Phone Number" name="phone"></p><br>
-    <p><label for="User Name" class="poppins-font text-lg">Username</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="Enter your name" name="username" required></p><br>
-    <p><label for="Password" class="poppins-font text-lg">Password</label><br><input class="poppins-font text-base bg-stone-200 px-4 py-2 rounded-lg" type="password" placeholder="Enter your password" name="password" required></p><br>
-    <input type="submit" name="submit" value="Sign Up" class="font-bold text-2xl montserrat-font bg-dark-orange px-14 py-1 rounded-2xl"><br>
-    <p class="poppins-font text-xs my-2">Already have an account <a href="sign_in.php" class="text-dark-orange">Sign In!</a></p>
+    <p><label for="Full Name" class="ibm-plex-sans-thai-semibold text-lg">Full Name</label><br><input class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="e.g. Siddhartha Emerald" name="fullname"></p><br>
+    <p><label for="Phone" class="ibm-plex-sans-thai-semibold text-lg">Phone</label><br><input class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="Main Phone Number" name="phone"></p><br>
+    <p><label for="User Name" class="ibm-plex-sans-thai-semibold text-lg">Username</label><br><input class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="Enter your name" name="username" required></p><br>
+    <p><label for="Password" class="ibm-plex-sans-thai-semibold text-lg">Password</label><br><input class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg" type="password" placeholder="Enter your password" name="password" required></p><br>
+    <input type="submit" name="submit" value="Sign Up" class="ibm-plex-sans-thai-bold text-xl bg-dark-orange px-14 py-1 rounded-2xl"><br>
+    <p class="ibm-plex-sans-thai-regular text-xs my-2">Already have an account <a href="sign_in.php" class="text-dark-orange">Sign In!</a></p>
   </form>
 
 </body>

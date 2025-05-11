@@ -16,15 +16,15 @@
 
     <!-- Sign Up / Sign In Box -->
     <div class="bg-white p-6 rounded-xl shadow-lg max-w-md w-full h-72 text-center">
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">Welcome to Mongkol!</h2>
+        <h2 class="text-2xl ibm-plex-sans-thai-bold mb-4 text-gray-800">Welcome to Mongkol!</h2>
         
-        <a href="auth/sign_up.php" class="block bg-orange-500 text-white text-lg font-bold py-2 rounded-full mb-2 hover:bg-orange-600 transition">Sign Up</a>
+        <a href="auth/sign_up.php" class="block bg-orange-500 text-white text-lg ibm-plex-sans-thai-bold py-2 rounded-full mb-2 hover:bg-orange-600 transition">Sign Up</a>
         
-        <p class="text-sm text-gray-500 my-2">------------------- or -------------------</p>
+        <p class="text-sm ibm-plex-sans-thai-medium text-gray-500 my-2">------------------- or -------------------</p>
         
-        <a href="auth/sign_in.php" class="block border border-orange-500 text-orange-500 text-lg font-bold py-2 rounded-full hover:bg-orange-100 transition">Sign In</a>
+        <a href="auth/sign_in.php" class="block border border-orange-500 text-orange-500 text-lg ibm-plex-sans-thai-bold py-2 rounded-full hover:bg-orange-100 transition">Sign In</a>
         
-        <p class="text-xs text-gray-600 mt-4">
+        <p class="text-xs ibm-plex-sans-thai-regular text-gray-600 mt-4">
             By creating an account, I accept Mongkol's <br>
             <a href="#" class="text-orange-500 underline">Terms of Service</a> and 
             <a href="#" class="text-orange-500 underline">Privacy Policy</a>.

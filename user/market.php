@@ -217,7 +217,7 @@
     });
 </script>
 
-<div class="poppins-font grid gap-4 my-4 px-4
+<div class="ibm-plex-sans-thai-semibold grid gap-4 my-4 px-4
             grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
     <?php
     $sql = "SELECT p.product_ID, p.productName, p.imgPath, p.price, c.cateName, 
@@ -235,7 +235,7 @@
                 <div class="poppins-font flex flex-col justify-between py-1 px-2 rounded-md bg-soft-white h-full">
                     <img src="../<?php echo $row["imgPath"]; ?>" alt="<?php echo $row["productName"]; ?>" class="w-full h-40 object-cover rounded-md mb-1">
                     <div>
-                        <p class="poppins-font text-sm line-clamp-2 h-10 overflow-hidden"><?php echo $row["productName"]; ?></p>
+                        <p class="text-xl ibm-plex-sans-thai-medium line-clamp-2 h-10 overflow-hidden"><?php echo $row["productName"]; ?></p>
                         <div class="flex justify-between items-end mt-1">
                         <?php
                             $rating = round($row["STAR"] * 2) / 2;

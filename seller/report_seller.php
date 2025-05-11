@@ -20,12 +20,12 @@
         //ยอดขายรวมในร้าานรายหมวด (Total spend by category)
         $sql_5 = "SELECT R.price_amount,W.cateName FROM tbl_categories W JOIN (SELECT B.cate_ID ,SUM(A.price) price_amount FROM `tbl_transaction_items` A JOIN tbl_products B ON A.product_ID = B.product_ID WHERE B.shop_ID = ? GROUP BY B.cate_ID ORDER BY price_amount DESC) R ON W.cate_ID = R.cate_ID";
     ?>
-    <div class="text-white ml-[20px] text-3xl pb-[10px] font-bold">Dashboard</div>
+    <div class="text-white ml-[20px] text-3xl pb-[10px] ibm-plex-sans-thai-bold">Dashboard</div>
     <div class="grid grid-cols-2 gap-3 ml-[20px] mr-[20px]">
         <div class="w-full h-[400px] flex flex-col gap-3">
                 <div class = "flex flex-col gap-3 bg-white w-full h-[150px] rounded">
-                    <div class = "font-bold text-xl pt-[10px] pl-[20px] h-fit">ยอดขายรวมของร้านค้า (Total spend) </div>
-                    <div class = "h-fit pt-[10px] pl-[20px] font-bold text-2xl text-orange-500">฿ 
+                    <div class = "ibm-plex-sans-thai-bold text-xl pt-[10px] pl-[20px] h-fit">ยอดขายรวมของร้านค้า (Total spend) </div>
+                    <div class = "h-fit pt-[10px] pl-[20px] ibm-plex-sans-thai-semibold text-2xl text-orange-500">฿ 
                     <?php 
                         $stmt = $conn->prepare($sql_1);
                         $stmt->bind_param("s",$_SESSION['shop_ID']);
@@ -38,8 +38,8 @@
                 </div>
                 <div class = "w-full h-[250px] flex flex-row gap-3">
                         <div class ="bg-white w-full h-[250px] rounded">
-                            <div  class = "font-bold text-xl pt-[10px] pl-[20px]" >สินค้าที่ขายได้จำนวนมากที่สุด</div>
-                            <div class="text-orange-500 h-fit pt-[10px] pl-[20px] font-bold text-2xl">
+                            <div  class = "ibm-plex-sans-thai-bold text-xl pt-[10px] pl-[20px]" >สินค้าที่ขายได้จำนวนมากที่สุด</div>
+                            <div class="text-orange-500 h-fit pt-[10px] pl-[20px] ibm-plex-sans-thai-semibold text-2xl">
                             <?php 
                         $stmt = $conn->prepare($sql_2);
                         $stmt->bind_param("s",$_SESSION['shop_ID']);
@@ -52,8 +52,8 @@
                         </div>
                         <div class ="w-full h-[250px] flex flex-col gap-3">
                                 <div class = "bg-white w-full h-[120px] rounded">
-                                    <div class = "font-bold text-xl pt-[10px] pl-[20px]">ประเภทสินค้าที่ขายได้มากที่สุด</div>
-                                    <div class="text-orange-500 h-fit pt-[10px] pl-[20px] font-bold text-2xl">
+                                    <div class = "ibm-plex-sans-thai-bold text-xl pt-[10px] pl-[20px]">ประเภทสินค้าที่ขายได้มากที่สุด</div>
+                                    <div class="text-orange-500 h-fit pt-[10px] pl-[20px] ibm-plex-sans-thai-semibold text-2xl">
                                     <?php 
                         $stmt = $conn->prepare($sql_3);
                         $stmt->bind_param("s",$_SESSION['shop_ID']);
@@ -65,8 +65,8 @@
                                     </div>
                                 </div>
                                 <div class = "bg-white w-full h-[120px] rounded">
-                                    <div class = "font-bold text-xl pt-[10px] pl-[20px]">สินค้าที่ขายได้รายได้มากที่สุด</div>
-                                    <div class="text-orange-500 h-fit pt-[10px] pl-[20px] font-bold text-2xl">
+                                    <div class = "ibm-plex-sans-thai-bold text-xl pt-[10px] pl-[20px]">สินค้าที่ขายได้รายได้มากที่สุด</div>
+                                    <div class="text-orange-500 h-fit pt-[10px] pl-[20px] ibm-plex-sans-thai-semibold text-2xl">
                                     <?php 
                         $stmt = $conn->prepare($sql_4);
                         $stmt->bind_param("s",$_SESSION['shop_ID']);
@@ -85,7 +85,7 @@
         </div>
         <div class="bg-white w-full h-[400px] rounded">
             
-            <div  class = "font-bold text-xl pt-[10px] pl-[20px]" >ยอดขายรวมในร้าานรายหมวด (Total spend by category)</div>
+            <div  class = "ibm-plex-sans-thai-bold text-xl pt-[10px] pl-[20px]" >ยอดขายรวมในร้านรายหมวด (Total spend by category)</div>
             <canvas id="myChart" style="width:100%;max-width:600px" class="ml-auto mr-auto mt-[30px]"></canvas>
         </div>
   

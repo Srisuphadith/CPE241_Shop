@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <?php if (isset($_SESSION["error_message"])): ?>
         <div id="error-alert" class="mt-12 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-auto my-2 max-w-3xl flex justify-between items-center">
             <span><?php echo htmlspecialchars($_SESSION["error_message"]); ?></span>
-            <button onclick="closeAlert('error-alert')" class="text-red-700 hover:text-red-900 font-bold">
+            <button onclick="closeAlert('error-alert')" class="text-red-700 ibm-plex-sans-thai-regular hover:text-red-900 font-bold">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -223,9 +223,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <?php endif; ?>
 
     <?php if (isset($_SESSION["success_message"])): ?>
-        <div id="success-alert" class="mt-12 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mx-auto my-2 max-w-3xl flex justify-between items-center">
+        <div id="success-alert" class="mt-12 bg-green-100 border border-green-400 text-green-700 ibm-plex-sans-thai-regular px-4 py-3 rounded relative mx-auto my-2 max-w-3xl flex justify-between items-center">
             <span><?php echo htmlspecialchars($_SESSION["success_message"]); ?></span>
-            <button onclick="closeAlert('success-alert')" class="text-green-700 hover:text-green-900 font-bold">
+            <button onclick="closeAlert('success-alert')" class="text-green-700 ibm-plex-sans-thai-regular hover:text-green-900 font-bold">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -269,10 +269,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Product Info -->
     <div>
-        <h1 class="poppins-font text-2xl font-bold mb-2 text-soft-white"><?php echo htmlspecialchars($product["productName"]); ?></h1>
+        <h1 class="poppins-font text-2xl ibm-plex-sans-thai-bold mb-2 text-soft-white"><?php echo htmlspecialchars($product["productName"]); ?></h1>
 
         <!-- Rating -->
-        <div class="flex items-center mb-2 text-yellow-400 text-sm">
+        <div class="flex items-center mb-2 text-yellow-400 ibm-plex-sans-thai-light text-sm">
             <?php
                 $rating = round($product["STAR"] * 2) / 2;
                 for ($i = 1; $i <= 5; $i++) {
@@ -285,11 +285,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             ?>
-            <span class="poppins-font text-gray-400 text-xs ml-2">(<?php echo number_format($product["STAR"], 1); ?>)</span>
+            <span class="ibm-plex-sans-thai-regular text-gray-400 text-xs ml-2">(<?php echo number_format($product["STAR"], 1); ?>)</span>
         </div>
 
         <!-- Price -->
-        <p class="poppins-font text-2xl font-semibold text-white mb-4">฿<?php echo number_format($product["price"]); ?></p>
+        <p class="poppins-font text-2xl ibm-plex-sans-thai-semibold text-white mb-4">฿<?php echo number_format($product["price"]); ?></p>
 
         <!-- Quantity + Button -->
         <form method="POST" action="product_detail.php" class="flex items-center mb-6 space-x-2">
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <button type="button" onclick="changeQty(-1)" class="bg-white px-3 py-1 rounded">-</button>
             <input id="qtyInput" type="text" name="quantity" value="1" min="1" inputmode="numeric" class="w-12 text-center text-black rounded">
             <button type="button" onclick="changeQty(1)" class="bg-white px-3 py-1 rounded">+</button>
-            <button type="submit" class="ml-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2 rounded">
+            <button type="submit" class="ml-4 bg-orange-500 hover:bg-orange-600 text-white ibm-plex-sans-thai-semibold px-5 py-2 rounded">
                 Add to cart
             </button>
         </form>
@@ -314,8 +314,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         <!-- Description -->
         <div class="rounded-lg p-4">
-            <h2 class="poppins-font text-lg font-bold mb-2 text-soft-white">Detail</h2>
-            <p class="leading-relaxed whitespace-pre-line text-soft-white"><?php echo nl2br(htmlspecialchars($product["description"])); ?></p>
+            <h2 class="poppins-font text-lg ibm-plex-sans-thai-medium mb-2 text-soft-white">Detail</h2>
+            <p class="leading-relaxed ibm-plex-sans-thai-regular whitespace-pre-line text-soft-white"><?php echo nl2br(htmlspecialchars($product["description"])); ?></p>
         </div>
         
     </div>

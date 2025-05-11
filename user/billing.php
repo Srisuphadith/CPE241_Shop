@@ -201,18 +201,18 @@ $total = $subtotal + $shipping - $discount_amount;
     <?php require_once("../navbar/nav_user.php"); ?>
 
     <form action="billing.php" method="POST" class="max-w-7xl mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-white mb-8">Checkout</h1>
+        <h1 class="text-3xl ibm-plex-sans-thai-bold text-white mb-8">Checkout</h1>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Shipping & Payment -->
             <div class="lg:col-span-2 space-y-8">
                 <!-- Shipping Address -->
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-xl font-bold mb-4">Shipping Address</h2>
+                    <h2 class="text-xl ibm-plex-sans-thai-bold mb-4">Shipping Address</h2>
                     
                     <?php if (empty($addresses)): ?>
-                        <p class="text-gray-600 mb-4">No addresses found. Please add a shipping address.</p>
-                        <a href="manage_address.php" class="inline-block px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
+                        <p class="text-gray-600 ibm-plex-sans-thai-medium mb-4">No addresses found. Please add a shipping address.</p>
+                        <a href="manage_address.php" class="inline-block px-4 py-2 bg-orange-500 text-white ibm-plex-sans-thai-medium rounded-lg hover:bg-orange-600 transition">
                             Add Address
                         </a>
                     <?php else: ?>
@@ -222,7 +222,7 @@ $total = $subtotal + $shipping - $discount_amount;
                                     <input type="radio" name="shipping_address" value="<?php echo $addr['buildingNumber']; ?>" 
                                            class="mt-1" <?php echo $addr['is_primary'] ? 'checked' : ''; ?>>
                                     <div class="ml-3">
-                                        <p class="font-medium">
+                                        <p class="ibm-plex-sans-thai-medium">
                                             <?php echo htmlspecialchars($addr['buildingNumber']); ?>, 
                                             <?php echo htmlspecialchars($addr['subdistrict']); ?>, 
                                             <?php echo htmlspecialchars($addr['district']); ?>, 
@@ -230,13 +230,13 @@ $total = $subtotal + $shipping - $discount_amount;
                                             <?php echo htmlspecialchars($addr['zip_code']); ?>
                                         </p>
                                         <?php if ($addr['txt']): ?>
-                                            <p class="text-sm text-gray-600 mt-1"><?php echo htmlspecialchars($addr['txt']); ?></p>
+                                            <p class="text-sm ibm-plex-sans-thai-regular text-gray-600 mt-1"><?php echo htmlspecialchars($addr['txt']); ?></p>
                                         <?php endif; ?>
                                     </div>
                                 </label>
                             <?php endforeach; ?>
                         </div>
-                        <a href="manage_address.php" class="inline-block mt-4 text-orange-500 hover:text-orange-600">
+                        <a href="manage_address.php" class="inline-block mt-4 text-orange-500 ibm-plex-sans-thai-semibold hover:text-orange-600">
                             Manage Addresses
                         </a>
                     <?php endif; ?>
@@ -247,7 +247,7 @@ $total = $subtotal + $shipping - $discount_amount;
             <!-- Order Summary -->
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-xl font-bold mb-4">Order Summary</h2>
+                    <h2 class="text-xl ibm-plex-sans-thai-bold mb-4">Order Summary</h2>
                     
                     <div class="space-y-4 mb-6">
                         <?php foreach ($items as $item): ?>
@@ -256,12 +256,12 @@ $total = $subtotal + $shipping - $discount_amount;
                                      alt="<?php echo htmlspecialchars($item['productName']); ?>" 
                                      class="w-16 h-16 object-cover rounded-lg">
                                 <div class="ml-4 flex-grow">
-                                    <p class="font-medium"><?php echo htmlspecialchars($item['productName']); ?></p>
-                                    <span class="text-sm text-gray-600">QTY: </span>
-                                    <input name="pQ[]" class="text-sm text-gray-600 w-8" value="<?php echo $item['quantity']; ?>" readonly>
+                                    <p class="ibm-plex-sans-thai-medium"><?php echo htmlspecialchars($item['productName']); ?></p>
+                                    <span class="text-sm ibm-plex-sans-thai-regular text-gray-600">QTY: </span>
+                                    <input name="pQ[]" class="text-sm ibm-plex-sans-thai-regular text-gray-600 w-8" value="<?php echo $item['quantity']; ?>" readonly>
                                     <input type="hidden" name="pP[]" value="<?php echo $item['price']; ?>">
                                 </div>
-                                <p class="font-medium">฿<?php echo number_format($item['price'] * $item['quantity'], 2); ?></p>
+                                <p class="ibm-plex-sans-thai-medium">฿<?php echo number_format($item['price'] * $item['quantity'], 2); ?></p>
                             </div>
                         <?php endforeach; ?>
 
@@ -279,14 +279,14 @@ $total = $subtotal + $shipping - $discount_amount;
                         </div>
                         <?php if ($discount > 0): ?>
                             <div class="flex justify-between">
-                                <span class="text-gray-600">Discount (<?php echo $discount; ?>%)</span>
-                                <span id="discount-amount" class="font-semibold text-green-600">-฿<?php echo number_format($discount_amount, 2); ?></span>
+                                <span class="text-gray-600 ibm-plex-sans-thai-bold">Discount (<?php echo $discount; ?>%)</span>
+                                <span id="discount-amount" class="ibm-plex-sans-thai-semibold text-green-600">-฿<?php echo number_format($discount_amount, 2); ?></span>
                             </div>
                         <?php endif; ?>
                         <div class="border-t pt-3">
                             <div class="flex justify-between">
-                                <span class="text-lg font-semibold">Total</span>
-                                <span id="total" class="text-lg font-semibold">฿<?php echo number_format($total, 2); ?></span>
+                                <span class="text-lg ibm-plex-sans-thai-semibold">Total</span>
+                                <span id="total" class="text-lg ibm-plex-sans-thai-semibold">฿<?php echo number_format($total, 2); ?></span>
                                 <input type="hidden" name="total" value="<?php echo $total; ?>">
                             </div>
                         </div>
@@ -299,7 +299,7 @@ $total = $subtotal + $shipping - $discount_amount;
                         <?php if (!empty($coupon_code)): ?>
                             <input type="hidden" name="coupon_code" value="<?php echo htmlspecialchars($coupon_code); ?>">
                         <?php endif; ?>
-                        <button type="submit" name="submitForm" class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition">
+                        <button type="submit" name="submitForm" class="w-full bg-orange-500 text-white ibm-plex-sans-thai-bold py-3 rounded-lg hover:bg-orange-600 transition">
                             Place Order
                         </button>
                     </div>
