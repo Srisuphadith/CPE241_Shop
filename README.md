@@ -8,7 +8,7 @@
 <li>66070501071 YANAKORN TANGPRAKHON</li> 
 <li>66070501084 THATTHEP THONGRUNG</li> 
 
-# Techstack
+# Tech stack
   <li>MySQL</li>
   <li>APACHE</li>
   <li>PHPMYADMIN</li>
