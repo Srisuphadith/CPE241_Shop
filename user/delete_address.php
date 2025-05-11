@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 
         <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
             <div class="flex flex-row gap-10 w-fit ml-auto mr-auto pb-[20px]">
-            <a href="/seller/" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">Cancel</a>
+            <a href="/user/manage_address.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">Cancel</a>
             <input type="submit" name="submit" value="Delete" class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded" >
             </div>
         </form>
