@@ -15,7 +15,7 @@ session_start();
       <!-- Logo -->
         <a href="../user/market.php" class="flex items-center space-x-2">
           <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1371177503816679495/logo.png?ex=68223010&is=6820de90&hm=344b78b1e38f9ddbec7e069893b22b2fbf523c3a9f16b794017c09b98a1ed7fd&" alt="Logo" class="w-10 h-10" />
-          <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
+          <span class="text-2xl font-bold font-white text-orange-500">MONGKOL</span>
         </a>
 
     <div>

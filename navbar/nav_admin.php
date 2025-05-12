@@ -13,7 +13,7 @@ session_start();
       <!-- Logo -->
         <a href="#" class="flex items-center space-x-2">
           <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369961059695460412/image.png?ex=6821b7a9&is=68206629&hm=40fb05839f3ca1c774fa902f4af955e9aceb39e4977c8e4e0cc4e4efb89fb7cc&" alt="Logo" class="w-10 h-10" />
-          <span class="text-2xl font-bold text-orange-500">MONGKOL SUPERADMIN</span>
+          <span class="text-2xl font-white font-bold text-orange-500">MONGKOL SUPERADMIN</span>
         </a>
 
       <!-- Admin name & Logout -->
