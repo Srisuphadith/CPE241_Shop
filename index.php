@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mongkol</title>
     <?php require_once("conn.php"); ?>
+    <link rel="icon" href="/img/logo.png">
 </head>
 <body class="bg-gray-900 min-h-screen flex flex-col md:flex-row justify-center items-center gap-10 p-6">
 

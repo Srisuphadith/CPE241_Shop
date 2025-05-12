@@ -14,7 +14,7 @@ session_start();
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6">
       <!-- Logo -->
         <a href="../user/market.php" class="flex items-center space-x-2">
-          <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369961059695460412/image.png?ex=68206629&is=681f14a9&hm=fa3eabd096bc305e538ad887a8451261662bb6171284042bb953a26195c9c0d5&" alt="Logo" class="w-10 h-10" />
+          <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1371177503816679495/logo.png?ex=68223010&is=6820de90&hm=344b78b1e38f9ddbec7e069893b22b2fbf523c3a9f16b794017c09b98a1ed7fd&" alt="Logo" class="w-10 h-10" />
           <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
         </a>
 

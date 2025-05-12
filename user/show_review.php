@@ -41,10 +41,21 @@ while ($row = $result->fetch_assoc()):
 <?php endwhile; ?>
 
 <!-- Review Form -->
-<?php if (isset($_SESSION['userID'])): ?>
+<?php 
+if (isset($_SESSION['userID'])): 
+    if(isset($_POST['submit'])){
+        $starRate = $_POST['starRate'];
+        $txt = $_POST['txt'];
+        $sql1 = "INSERT INTO tbl_reviews(product_ID,user_ID,starRate,txt) VALUES(?,?,?,?)";
+        $stmt = $conn->prepare($sql1);
+        $stmt->bind_param('ssss',$product_id,$_SESSION['userID'],$starRate,$txt);
+        $stmt->execute();
+        
+    }else{
+    ?>
     <div class="bg-white shadow-md rounded-lg p-4 mt-6">
         <h2 class="text-xl ibm-plex-sans-thai-semibold text-black mb-4">Write a Review</h2>
-        <form method="POST" action="product_detail.php" enctype="multipart/form-data" class="space-y-4">
+        <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data" class="space-y-4"> 
             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
 
             <!-- Rating -->
@@ -66,11 +77,13 @@ while ($row = $result->fetch_assoc()):
             <input type="file" name="review_image" accept="image/*" class="block">
 
             <!-- Submit -->
-            <button type="submit" class="bg-orange-500 ibm-plex-sans-thai-semibold text-white px-4 py-2 rounded hover:bg-orange-600">
+            <button type="submit" name="submit" class="bg-orange-500 ibm-plex-sans-thai-semibold text-white px-4 py-2 rounded hover:bg-orange-600">
                 Submit Review
             </button>
         </form>
     </div>
-<?php else: ?>
+<?php 
+}
+else: ?>
     <p class="mt-6 text-gray-600">You must be <a href="../auth/sign_in.php" class="text-blue-500 ibm-plex-sans-thai-regular underline">logged in</a> to leave a review.</p>
 <?php endif; ?>

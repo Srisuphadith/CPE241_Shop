@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mongkol | Sign Up</title>
+  <link rel="icon" href="../img/logo.png">
   <?php
     require_once("../conn.php");
   ?>
@@ -46,6 +47,7 @@
     $username = $_POST["username"];
     $phonenumber = $_POST["phone"];
     $password = $_POST["password"];
+    $select_role = $_POST["select_role"];
     $passwordHash = password_hash($password , PASSWORD_DEFAULT);
     $error = array();
     if(strlen($password) <= 9 or strlen($password) >= 30){
@@ -138,11 +140,11 @@
 
 
       if (!empty($middlename)) {
-        $stmt = $conn->prepare("INSERT INTO tbl_users (`firstName`, `midName`, `lastName`, `userName`, `password_hash`) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $firstname, $middlename, $lastname, $username, $passwordHash);
+        $stmt = $conn->prepare("INSERT INTO tbl_users (`firstName`, `midName`, `lastName`, `userName`, `password_hash`,`role`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $firstname, $middlename, $lastname, $username, $passwordHash, $select_role);
     } else { 
-        $stmt = $conn->prepare("INSERT INTO tbl_users (`firstName`, `lastName`, `userName`, `password_hash`) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $firstname, $lastname, $username, $passwordHash);
+        $stmt = $conn->prepare("INSERT INTO tbl_users (`firstName`, `lastName`, `userName`, `password_hash`,`role`) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $firstname, $lastname, $username, $passwordHash,$select_role);
     }
       if($stmt->execute()){
         header("Location: sign_in.php?message=" . urlencode("Registration successful!"));
@@ -160,6 +162,12 @@
     <p><label for="Phone" class="ibm-plex-sans-thai-semibold text-lg">Phone</label><br><input class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="Main Phone Number" name="phone"></p><br>
     <p><label for="User Name" class="ibm-plex-sans-thai-semibold text-lg">Username</label><br><input class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg" type="text" placeholder="Enter your name" name="username" required></p><br>
     <p><label for="Password" class="ibm-plex-sans-thai-semibold text-lg">Password</label><br><input class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg" type="password" placeholder="Enter your password" name="password" required></p><br>
+    <p><label for="Select role" class="ibm-plex-sans-thai-semibold text-lg">Select role</label><br>
+    <select name="select_role" class="ibm-plex-sans-thai-regular text-base bg-stone-200 px-4 py-2 rounded-lg">
+      <option value="user" selected>buyer</option>
+      <option value="seller">seller</option>
+  </select>
+    </p><br>
     <input type="submit" name="submit" value="Sign Up" class="ibm-plex-sans-thai-bold text-xl bg-dark-orange px-14 py-1 rounded-2xl"><br>
     <p class="ibm-plex-sans-thai-regular text-xs my-2">Already have an account <a href="sign_in.php" class="text-dark-orange">Sign In!</a></p>
   </form>

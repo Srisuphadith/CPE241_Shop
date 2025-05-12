@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Payment Management</title>
+  <link rel="icon" href="../img/logo.png">
 </head>
 
 <body class="bg-w-full bg-[#2E282A] mr-8 ml-8">
   <?php 
     require_once("../navbar/nav_admin.php");
-    require_once("../conn.php"); 
+    require_once("../conn_w.php");
   ?>
   <div class="container mx-auto px-4 py-8">
     <h2 class="text-2xl font-semibold mb-6 text-center text-orange-500">Payment Management</h2>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>manage_user</title>
+    <link rel="icon" href="../img/logo.png">
 </head>
   
   <body class = "bg-w-full bg-[#2E282A] mr-8 ml-8" >

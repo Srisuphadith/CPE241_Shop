@@ -1,5 +1,5 @@
 <?php
-require_once("../conn.php"); // เชื่อมต่อ DB
+require_once("../conn_w.php");
 
 // ตรวจสอบข้อมูลที่ส่งมา
 if (

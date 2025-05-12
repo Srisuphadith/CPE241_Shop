@@ -1,6 +1,5 @@
 <?php
-require_once("../conn.php"); // เชื่อมต่อ DB
-
+require_once("../conn_w.php");
 // ตรวจสอบว่ามีการส่ง ID มาหรือไม่
 if (isset($_POST['id'])) {
     $coupon_ID = (int)$_POST['id'];

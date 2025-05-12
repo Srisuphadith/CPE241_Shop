@@ -3,22 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Report seller</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="icon" href="../img/logo.png">
 </head>
 <body class="m-4 bg-soft-black">
     <?php
         require_once("../navbar/nav_user.php");
         //ยอดขายรวมของร้านค้า (Total spend)
-        $sql_1 = "SELECT SUM(A.price) sum_price FROM `tbl_transaction_items` A JOIN tbl_products B ON A.product_ID = B.product_ID WHERE B.shop_ID = ?";
+        $sql_1 = "SELECT SUM(A.price) sum_price 
+                  FROM `tbl_transaction_items` A 
+                  JOIN tbl_products B ON A.product_ID = B.product_ID WHERE B.shop_ID = ?";
         //สินค้าที่ขายได้จำนวนมากที่สุด
-        $sql_2 = "SELECT A.product_ID,COUNT(A.product_ID) sell_amount,B.productName FROM `tbl_transaction_items` A JOIN tbl_products B ON A.product_ID = B.product_ID WHERE B.shop_ID = ? GROUP BY A.product_ID ORDER BY sell_amount DESC";
+        $sql_2 = "SELECT A.product_ID,COUNT(A.product_ID) sell_amount,B.productName 
+                  FROM `tbl_transaction_items` A 
+                  JOIN tbl_products B ON A.product_ID = B.product_ID 
+                  WHERE B.shop_ID = ? 
+                  GROUP BY A.product_ID 
+                  ORDER BY sell_amount DESC";
         //ประเภทสินค้าที่ขายได้มากที่สุด
-        $sql_3 = "SELECT R.cate_amount,W.cateName FROM tbl_categories W JOIN (SELECT B.cate_ID ,COUNT(B.cate_ID) cate_amount FROM `tbl_transaction_items` A JOIN tbl_products B ON A.product_ID = B.product_ID WHERE B.shop_ID = ? GROUP BY B.cate_ID ORDER BY cate_amount DESC) R ON W.cate_ID = R.cate_ID";
+        $sql_3 = "SELECT R.cate_amount,W.cateName 
+                  FROM tbl_categories W 
+                  JOIN (SELECT B.cate_ID ,COUNT(B.cate_ID) cate_amount 
+                        FROM `tbl_transaction_items` A 
+                        JOIN tbl_products B ON A.product_ID = B.product_ID 
+                        WHERE B.shop_ID = ? 
+                        GROUP BY B.cate_ID 
+                        ORDER BY cate_amount DESC) R 
+                  ON W.cate_ID = R.cate_ID";
         //สินค้าที่ขายได้รายได้มากที่สุด
-        $sql_4 = "SELECT SUM(A.price) sum_of_price,B.productName FROM tbl_transaction_items A JOIN tbl_products B ON A.product_ID = B.product_ID WHERE B.shop_ID = ? GROUP BY A.product_ID ORDER BY sum_of_price DESC";
+        $sql_4 = "SELECT SUM(A.price) sum_of_price,B.productName 
+                  FROM tbl_transaction_items A 
+                  JOIN tbl_products B ON A.product_ID = B.product_ID 
+                  WHERE B.shop_ID = ? 
+                  GROUP BY A.product_ID 
+                  ORDER BY sum_of_price DESC";
         //ยอดขายรวมในร้าานรายหมวด (Total spend by category)
-        $sql_5 = "SELECT R.price_amount,W.cateName FROM tbl_categories W JOIN (SELECT B.cate_ID ,SUM(A.price) price_amount FROM `tbl_transaction_items` A JOIN tbl_products B ON A.product_ID = B.product_ID WHERE B.shop_ID = ? GROUP BY B.cate_ID ORDER BY price_amount DESC) R ON W.cate_ID = R.cate_ID";
+        $sql_5 = "SELECT R.price_amount,W.cateName 
+                  FROM tbl_categories W 
+                  JOIN (SELECT B.cate_ID ,SUM(A.price) price_amount 
+                        FROM `tbl_transaction_items` A 
+                        JOIN tbl_products B ON A.product_ID = B.product_ID 
+                        WHERE B.shop_ID = ? 
+                        GROUP BY B.cate_ID 
+                        ORDER BY price_amount DESC) R 
+                  ON W.cate_ID = R.cate_ID";
     ?>
     <div class="text-white ml-[20px] text-3xl pb-[10px] ibm-plex-sans-thai-bold">Dashboard</div>
     <div class="grid grid-cols-2 gap-3 ml-[20px] mr-[20px]">

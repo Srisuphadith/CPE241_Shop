@@ -1,5 +1,6 @@
 <?php
-require_once("../conn.php");
+require_once("../conn_w.php");
+
 
 if (isset($_POST['id'])) {
     $userID = $_POST['id'];

@@ -1,6 +1,5 @@
 <?php
-// เชื่อมต่อฐานข้อมูล
-require_once("../conn.php");
+require_once("../conn_w.php");
 
 // ตรวจสอบว่ามีการส่ง id มาหรือไม่
 if (isset($_GET['id'])) {

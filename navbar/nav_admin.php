@@ -12,8 +12,8 @@ session_start();
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6">
       <!-- Logo -->
         <a href="#" class="flex items-center space-x-2">
-          <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369961059695460412/image.png?ex=68206629&is=681f14a9&hm=fa3eabd096bc305e538ad887a8451261662bb6171284042bb953a26195c9c0d5&" alt="Logo" class="w-10 h-10" />
-          <span class="text-2xl font-bold text-orange-500">MONGKOL</span>
+          <img src="https://cdn.discordapp.com/attachments/1369959680247463977/1369961059695460412/image.png?ex=6821b7a9&is=68206629&hm=40fb05839f3ca1c774fa902f4af955e9aceb39e4977c8e4e0cc4e4efb89fb7cc&" alt="Logo" class="w-10 h-10" />
+          <span class="text-2xl font-bold text-orange-500">MONGKOL SUPERADMIN</span>
         </a>
 
       <!-- Admin name & Logout -->
@@ -31,7 +31,7 @@ session_start();
         <a href="../admin/manage_user.php" class="text-white poppins-font hover:text-gray-300 transition">Users Management</a>
         <a href="../admin/manage_coupon.php" class="text-white poppins-font hover:text-gray-300 transition">Coupons Management</a>
         <a href="../admin/payment.php" class="text-white poppins-font hover:text-gray-300 transition">Payment</a>
-        <a href="#" class="text-white poppins-font hover:text-gray-300 transition">Reports</a>
+        <a href="../admin/report.php" class="text-white poppins-font hover:text-gray-300 transition">Reports</a>
       </div>
     </div>
   </div>

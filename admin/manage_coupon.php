@@ -4,12 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Manage Coupon</title>
+  <link rel="icon" href="../img/logo.png">
 </head>
 
 <body class="bg-w-full bg-[#2E282A] mr-8 ml-8">
   <?php 
     require_once("../navbar/nav_admin.php");
-    require_once("../conn.php"); 
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "CPE241_SHOP"; 
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
   ?> 
   <div class="container mx-auto px-4 py-8">
     <h2 class="text-2xl font-semibold mb-6 text-center text-orange-500">Create Coupon</h2>

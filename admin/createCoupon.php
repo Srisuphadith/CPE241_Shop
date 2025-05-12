@@ -1,6 +1,5 @@
 <?php
-require_once("../conn.php"); // เชื่อมต่อ DB
-
+require_once("../conn_w.php");
 // รับข้อมูล JSON ที่ส่งมาจาก fetch
 $data = json_decode(file_get_contents("php://input"), true);
 
